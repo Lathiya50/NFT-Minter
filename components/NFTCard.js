@@ -32,7 +32,7 @@ export default function NFTCard({ nft, onTransfer }) {
         signer
       );
 
-      const tx = await contract.transferFrom(
+      const tx = await contract.transferNFT(
         await signer.getAddress(),
         toAddress,
         nft.id
@@ -59,7 +59,6 @@ export default function NFTCard({ nft, onTransfer }) {
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(nft.id);
-    // Optional: Add a toast or small popup to show copied
   };
 
   return (
